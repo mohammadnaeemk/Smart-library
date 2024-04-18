@@ -15,7 +15,7 @@ public:
 ~Date(){}
 };
 //---------------------------------------------------------------------------------
-class Book:public Date
+class Book
 {
 private:
     string name;
@@ -38,6 +38,9 @@ public:
     void SetCategory(string CY){
         category=CY;
     }
+    void SetDate(Date D){
+        dateOfRelease=D;
+    }
 
      string GiveName()
      {
@@ -54,46 +57,65 @@ public:
 //---------------------------------------------------------------------------------
 class Library{
 private:
-    int size;
     Book *books;
-
+    int index;
+    int z=0;
 public:
-    Library(int a=0){
-        size=0;
-        books=new Book[size];
+
+    Library(int a){
+        index=a;
+        books =new Book[index];
     }
-    void BookAdder(Book book){
-        ++size;
-     Book *temp = new Book[size];
-        for (int i = 0; i < size-1; ++i) {
-            temp[i]=books[i];
-        }
-        temp[size]=book;
 
-        delete books;
-        books=new Book[size];
-
-        for (int i = 0; i < size; ++i) {
-            books[i]=temp[i];
-        }
+    void BookAdder(Book &book){
+        books[z]=book;
+        ++z;
     }
     string  CategoryFinder(string bookName){
         bool flag= false;
-        for (int i = 0; i < size; ++i) {
+        for (int i = 0; i < index; ++i) {
             if (books[i].GiveName()==bookName){
-                books[i].GiveCategory();
+              return books[i].GiveCategory();
                 flag= true;
                 break;
             }
         }
-        if (flag= false){
-            return "not found";
-        }
+        return "not found";
     }
     ~Library(){}
 };
 //---------------------------------------------------------------------------------
 int main() {
+int order;
+cin>>order;
+Library lib(order) ;
+    Book B ;
+    for (int i = 0; i < order; ++i) {
+        string str;
+        int num;
+
+
+        getline(cin>>ws,str) ;
+        B.SetName(str);
+
+        getline(cin>>ws,str) ;
+        B.SetAuthorName(str);
+
+        cin>>num;
+        cin>>str;
+        Date *tempDate=new Date(num,str);
+        B.SetDate(*tempDate);
+
+        cin>>str;
+        B.SetCategory(str);
+        lib.BookAdder(B);
+    }
+    cin>>order;
+    for (int i = 0; i < order; ++i) {
+        string str;
+        cin>>str;
+        cout<<lib.CategoryFinder(str)<<endl;
+    }
 
     return 0;
 }
