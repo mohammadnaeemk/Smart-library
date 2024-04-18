@@ -1,0 +1,3 @@
+D:/Naeem/Daneshgah/TERM2/pishrafte/tamrin4/tamrin1/Smart-library/cmake-build-debug/CMakeFiles/tamrin1.dir
+D:/Naeem/Daneshgah/TERM2/pishrafte/tamrin4/tamrin1/Smart-library/cmake-build-debug/CMakeFiles/edit_cache.dir
+D:/Naeem/Daneshgah/TERM2/pishrafte/tamrin4/tamrin1/Smart-library/cmake-build-debug/CMakeFiles/rebuild_cache.dir
