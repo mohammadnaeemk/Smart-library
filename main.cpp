@@ -2,18 +2,20 @@
 #include <string>
 
 using namespace std;
+
 //---------------------------------------------------------------------------------
 class Date{
-  int year;
-  string month;
+    int year;
+    string month;
 
 public:
-   Date(int number=0 , string str=""){
-      year=number;
-      month=str;
-  }
-~Date(){}
+    Date(int number=0 , string str=""){
+        year=number;
+        month=str;
+    }
+    ~Date(){}
 };
+
 //---------------------------------------------------------------------------------
 class Book
 {
@@ -23,12 +25,12 @@ private:
     string category;
 public:
     Date dateOfRelease;
-     Book(string N="",string A="",string C="")
-     {
-         name=N;
-         authorName=A;
-         category=C;
-     }
+    Book(string N="",string A="",string C="")
+    {
+        name=N;
+        authorName=A;
+        category=C;
+    }
     void SetName(string Name){
         name=Name;
     }
@@ -42,10 +44,10 @@ public:
         dateOfRelease=D;
     }
 
-     string GiveName()
-     {
-         return name;
-     }
+    string GiveName()
+    {
+        return name;
+    }
     string GiveCategory()
     {
         return category;
@@ -54,6 +56,7 @@ public:
 
     ~Book(){}
 };
+
 //---------------------------------------------------------------------------------
 class Library{
 private:
@@ -75,7 +78,7 @@ public:
         bool flag= false;
         for (int i = 0; i < index; ++i) {
             if (books[i].GiveName()==bookName){
-              return books[i].GiveCategory();
+                return books[i].GiveCategory();
                 flag= true;
                 break;
             }
@@ -84,16 +87,16 @@ public:
     }
     ~Library(){}
 };
+
 //---------------------------------------------------------------------------------
 int main() {
-int order;
-cin>>order;
-Library lib(order) ;
+    int order;
+    cin>>order;
+    Library lib(order) ;
     Book B ;
     for (int i = 0; i < order; ++i) {
         string str;
         int num;
-
 
         getline(cin>>ws,str) ;
         B.SetName(str);
@@ -113,7 +116,7 @@ Library lib(order) ;
     cin>>order;
     for (int i = 0; i < order; ++i) {
         string str;
-        cin>>str;
+        getline(cin>>ws,str);
         cout<<lib.CategoryFinder(str)<<endl;
     }
 
