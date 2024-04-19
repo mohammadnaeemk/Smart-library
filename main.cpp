@@ -96,9 +96,11 @@ int main() {
         int num;
 
         getline(cin>>ws,str) ;
+        str.erase(str.find_last_not_of(" \n\r\t")+1);
         B.SetName(str);
 
         getline(cin>>ws,str) ;
+        str.erase(str.find_last_not_of(" \n\r\t")+1);
         B.SetAuthorName(str);
 
         cin>>num;
@@ -106,7 +108,8 @@ int main() {
         Date *tempDate=new Date(num,str);
         B.SetDate(*tempDate);
 
-        cin>>str;
+        getline(cin>>ws,str);
+        str.erase(str.find_last_not_of(" \n\r\t")+1);
         B.SetCategory(str);
         lib.BookAdder(B);
     }
@@ -115,6 +118,7 @@ int main() {
     for (int i = 0; i < order; ++i) {
         string str;
         getline(cin>>ws,str);
+        str.erase(str.find_last_not_of(" \n\r\t")+1);
         arr[i]=lib.CategoryFinder(str);
     }
     for (int i = 0; i < order; ++i) {
