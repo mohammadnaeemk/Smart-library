@@ -75,12 +75,9 @@ public:
         ++z;
     }
     string  CategoryFinder(string bookName){
-        bool flag= false;
         for (int i = 0; i < index; ++i) {
             if (books[i].GiveName()==bookName){
                 return books[i].GiveCategory();
-                flag= true;
-                break;
             }
         }
         return "not found";
@@ -114,11 +111,16 @@ int main() {
         lib.BookAdder(B);
     }
     cin>>order;
+    string arr[order];
     for (int i = 0; i < order; ++i) {
         string str;
         getline(cin>>ws,str);
-        cout<<lib.CategoryFinder(str)<<endl;
+        arr[i]=lib.CategoryFinder(str);
     }
+    for (int i = 0; i < order; ++i) {
+       cout<<arr[i]<<endl;
+    }
+
 
     return 0;
 }
